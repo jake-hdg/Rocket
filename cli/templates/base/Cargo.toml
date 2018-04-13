@@ -1,0 +1,7 @@
+[package]
+name = "{{ name }}"
+version = "{{ version }}"
+authors = {{ authors }}
+
+[dependencies]
+{{ dependencies }}

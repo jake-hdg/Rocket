@@ -1,0 +1,19 @@
+[package]
+name = "rocket_cli"
+version = "0.1.0"
+authors = ["Sergio Benitez <sb@sergio.bz>"]
+
+[[bin]]
+name = "rocket"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "2.0", features = ["color"] }
+url = "*"
+tera = "*"
+walkdir = "*"
+derive-error = "*"
+serde = "*"
+
+[build-dependencies]
+include_dir = "=0.1.3"

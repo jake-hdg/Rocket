@@ -1,0 +1,6 @@
+Template inputs:
+  <name>          the name of the package
+  <version>       the version of the package
+  <authors>       package authors
+  <dependencies>  (optional) dependencies to add
+  <main>          source code for `main.rs`
