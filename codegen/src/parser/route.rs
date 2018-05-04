@@ -170,7 +170,7 @@ pub fn param_to_ident(ecx: &ExtCtxt, s: Spanned<&str>) -> Option<Spanned<Ident>>
 
 fn parse_method(ecx: &ExtCtxt, meta_item: &NestedMetaItem) -> Spanned<Method> {
     if let Some(word) = meta_item.word() {
-        if let Ok(method) = Method::from_str(&word.ident.name.as_str()) {
+        if let Ok(method) = Method::from_str(&word.name().as_str()) {
             if is_valid_method(method) {
                 return span(method, word.span());
             }
@@ -193,7 +193,7 @@ fn parse_path(ecx: &ExtCtxt,
               -> (Spanned<URI<'static>>, Option<Spanned<Ident>>) {
     let sp = meta_item.span();
     if let Some((name, lit)) = meta_item.name_value() {
-        if name != &"path" {
+        if name != "path" {
             ecx.span_err(sp, "the first key, if any, must be 'path'");
         } else if let LitKind::Str(ref s, _) = lit.node {
             return validate_uri(ecx, &s.as_str(), lit.span);
